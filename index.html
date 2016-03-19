@@ -39,7 +39,8 @@
 		</ul>
 	</div>
     <div class="container">
-		<div class="page-header row">
+	  <div class="row">
+		<div class="col-md-4">
 		<!-- todo: add col-md-4 / 8 and remove the color/format -->
 		<div class="btn-group">
 		  <button type="button" class="btn btn-lg btn-primary">My Portfolio</button>
@@ -53,51 +54,66 @@
 			<li><a href="#">FX long/short</a></li>
 		  </ul>
 		</div>
-			<div>Last updated yesterday by Mr. X @ 18:35 </div>
+			<div>Last updated yesterday @ 18:35 </div>
 		</div> 
-	</div>
-    <div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="input-group">
-				  <input type="text" class="form-control" placeholder="Add a security ... ">
-				  <span class="input-group-btn">
-					<button class="btn btn-default" type="button">Add</button>
-				  </span>
-				</div>
+		<div class="col-md-4">
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Add a security ... " action="security_list.py" autocomplete="on">
+			  <span class="input-group-btn">
+				<button class="btn btn-default" type="button">Add</button></span>
 			</div>
 		</div>
+	  </div> 
 	</div>
 
     <div class="container">
        <!--todo: 
-          1. div editable: 'select portfolio' with django autocomplete
+          1. div editable: 'select portfolio' with django list
               and event that loads portfolio, and changes Name, Update person/time
           2. div editable: 'add security' with django autocomplete
       --> 
-	<div class="row" name="grid_header">
-		<div class="col-md-2"><strong>Security Id</strong></div>
-		<div class="col-md-2"><strong>Position</strong></div>
-		<div class="col-md-2"><strong>Price</strong></div>
-		<div class="col-md-1"><strong>% Wgt</strong></div>
-		<div class="col-md-5"><strong>Statistics</strong></div>
-	</div>
+		<table class="table-striped table-hover">
+		<tr>
+			<td class="col-md-2 head">Security Id</td>
+			<td class="col-md-2 head">Position</td>
+			<td class="col-md-2 head">Price</td>
+			<td class="col-md-3 head">Actions</td>
+		</tr>
 
-	<!--todo: 
-	  1. django: filling all rows from the server. Or datalayer
-	  2. css: subclass row-item/row-title ?
-	  3. css: different colours for odd/even rows  
-	--> 
-	<div class="row" name="grid_element">
-		<div class="col-md-2">AAPL</div>
-		<div class="col-md-2">60</div>
-		<div class="col-md-2">107.61</div>
-		<div class="col-md-1">30</div>
-		<div class="col-md-5">stuff</div>
-	</div>
+		<!--todo: 
+		  1. django: filling all rows from the server. Or datalayer
+		--> 
 
-
-    </div> <!-- /container -->
+		<tr>
+			<td class="col-md-2">AAPL</td>
+			<td class="col-md-2">60</td>
+			<td class="col-md-2">107.61</td>
+			<td class="col-md-3">
+				<img src="img/chart.png" class="img-responsive" alt="Responsive image" onclick="chart()">
+				<img src="img/edit.png" class="img-responsive" alt="Responsive image" onclick="edit()">
+				<img src="img/delete.png" class="img-responsive" alt="Responsive image" onclick="delete()">
+			</td>
+		</tr>
+		<tr>
+			<td class="col-md-2">GOOG</td>
+			<td class="col-md-2">80</td>
+			<td class="col-md-2">93.34</td>
+			<td class="col-md-3">more stuff</td>
+		</tr>
+		<tr>
+			<td class="col-md-2">IBM</td>
+			<td class="col-md-2">20</td>
+			<td class="col-md-2">51.23</td>
+			<td class="col-md-3">more stuff</td>
+		</tr>
+		<tr>
+			<td class="col-md-2">CSCO</td>
+			<td class="col-md-2">25</td>
+			<td class="col-md-2">12.94</td>
+			<td class="col-md-3">more stuff</td>
+		</tr>
+    </table> 
 
   </body>
+
 </html>
