@@ -1,0 +1,15 @@
+.container {
+  margin-top: 20px;
+}
+
+.popup_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_btn:hover{
+  background-color: #428bca;
+  color: #ffffff;
+}
+
+
