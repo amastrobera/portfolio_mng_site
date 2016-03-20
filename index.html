@@ -14,14 +14,13 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-    </script>
+    <script src="js/jquery.12.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
   </head>
 
   <body>
-    <!--/todo: add links -->
+
     <div class="container">
 		<ul class="nav nav-pills">
 			<li role="presentation" class="active"><a href="#">Home</a></li>
@@ -38,81 +37,109 @@
 			</li>
 		</ul>
 	</div>
+
     <div class="container">
+       <!--todo: 
+          1. div editable: 'select portfolio' with django list
+              and event that loads portfolio, and changes Name, 
+			  Update person/time
+          2. div editable: 'add security' with django autocomplete
+      	--> 
 	  <div class="row">
-		<div class="col-md-4">
-		<!-- todo: add col-md-4 / 8 and remove the color/format -->
-		<div class="btn-group">
-		  <button type="button" class="btn btn-lg btn-primary">My Portfolio</button>
-		  <button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="caret"></span>
-			<span class="sr-only">Toggle Dropdown</span>
-		  </button>
-		  <ul class="dropdown-menu">
-			<li><a href="#">EUR Equity long</a></li>
-			<li><a href="#">European contruction</a></li>
-			<li><a href="#">FX long/short</a></li>
-		  </ul>
-		</div>
-			<div>Last updated yesterday @ 18:35 </div>
+		<div class="col-md-1">Portfolio</div>
+		<div class="col-md-2">
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="menu_portolios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select ...
+				<span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
+				<li><a href="#">EUR Equity long</a></li>
+				<li><a href="#">European contruction</a></li>
+				<li><a href="#">FX long/short</a></li>
+			  </ul>
+			</div>
 		</div> 
 		<div class="col-md-4">
 			<div class="input-group">
 			  <input type="text" class="form-control" placeholder="Add a security ... " action="security_list.py" autocomplete="on">
 			  <span class="input-group-btn">
-				<button class="btn btn-default" type="button">Add</button></span>
+				<button class="btn btn-default grid_btn" type="button">Add</button></span>
 			</div>
 		</div>
 	  </div> 
+	  <div class="row">
+		<div class="col-md-7">Last updated yesterday @ 18:35 </div>
+	  </div> 
 	</div>
 
-    <div class="container">
-       <!--todo: 
-          1. div editable: 'select portfolio' with django list
-              and event that loads portfolio, and changes Name, Update person/time
-          2. div editable: 'add security' with django autocomplete
-      --> 
-		<table class="table-striped table-hover">
-		<tr>
-			<td class="col-md-2 head">Security Id</td>
-			<td class="col-md-2 head">Position</td>
-			<td class="col-md-2 head">Price</td>
-			<td class="col-md-3 head">Actions</td>
-		</tr>
-
+    <div class="container">		
 		<!--todo: 
 		  1. django: filling all rows from the server. Or datalayer
+		  2. css: standardise this grid as a class, to reuse everywhere
 		--> 
-
+		<table class="table-striped table-hover">
 		<tr>
+			<td class="col-md-2 grid_head">Security Id</td>
+			<td class="col-md-2 grid_head">Position</td>
+			<td class="col-md-2 grid_head">Price</td>
+			<td class="col-md-6 grid_head">Actions</td>
+		</tr>
+
+		<tr class="grid_elem">
 			<td class="col-md-2">AAPL</td>
 			<td class="col-md-2">60</td>
 			<td class="col-md-2">107.61</td>
-			<td class="col-md-3">
-				<img src="img/chart.png" class="img-responsive" alt="Responsive image" onclick="chart()">
-				<img src="img/edit.png" class="img-responsive" alt="Responsive image" onclick="edit()">
-				<img src="img/delete.png" class="img-responsive" alt="Responsive image" onclick="delete()">
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				</div>
 			</td>
 		</tr>
-		<tr>
+		<tr class="grid_elem">
 			<td class="col-md-2">GOOG</td>
 			<td class="col-md-2">80</td>
 			<td class="col-md-2">93.34</td>
-			<td class="col-md-3">more stuff</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default  grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				</div>
 		</tr>
-		<tr>
+		<tr class="grid_elem">
 			<td class="col-md-2">IBM</td>
 			<td class="col-md-2">20</td>
 			<td class="col-md-2">51.23</td>
-			<td class="col-md-3">more stuff</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				</div>
 		</tr>
-		<tr>
+		<tr class="grid_elem">
 			<td class="col-md-2">CSCO</td>
 			<td class="col-md-2">25</td>
 			<td class="col-md-2">12.94</td>
-			<td class="col-md-3">more stuff</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				</div>
 		</tr>
     </table> 
+
+<!-- beautiful but : (1) how to make them clickable visually? (2) bigger?
+			<td class="col-md-3">
+				<span class="glyphicon glyphicon-triangle-right"/>
+				<span class="glyphicon glyphicon-pencil"/>
+				<span class="glyphicon glyphicon-remove-circle"/>
+			</td>
+-->
+
 
   </body>
 

@@ -2,10 +2,24 @@
   margin-top: 20px;
 }
 
+.port_header{
+  border: 0px;
+}
+
 .nav {
- margin-left: -20px;
  margin-top: -20px;
  margin-bottom: 10px;
+}
+/*todo: same blue-white-hover-bold structure as the btn_port*/
+
+.btn_port{
+  background-color: #ffffff;
+  color: #428bca;
+}
+.btn_port:hover{
+  background-color: #428bca;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .row  {
@@ -16,29 +30,26 @@
 [class*="col-"] {
   padding-top: 5px;
   padding-bottom: 5px;
+/*  
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
+*/
 }
 
-[class*=" head"] {
+.grid_head{
   background-color: #428bca;
   color: #ffffff;
   font-weight: bold;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+.grid_btn{
+  background-color: #ffffff;
   color: #428bca;
+  font-weight: bold;
 }
-
-.img-responsive{
-  width: 10%; 
-}
-
-/*to remove? I use img-responsive, not btn*/
-.btn-delete{
-  background: url("../img/delete.png") no-repeat;
-  cursor:pointer;
-  border: none;
+.grid_btn:hover{
+  background-color: #428bca;
+  color: #ffffff;
 }
 
 
