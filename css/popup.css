@@ -22,3 +22,12 @@
   color: #ffffff;
 }
 
+.popup_edit_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_edit_btn:hover{
+  background-color: #c09853;
+  color: #ffffff;
+}
