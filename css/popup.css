@@ -12,4 +12,13 @@
   color: #ffffff;
 }
 
+.popup_del_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_del_btn:hover{
+  background-color: #a94442;
+  color: #ffffff;
+}
 
