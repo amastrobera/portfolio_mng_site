@@ -1,0 +1,56 @@
+.container {
+  margin-top: 20px;
+}
+
+.port_header{
+  border: 0px;
+}
+
+.nav {
+ margin-top: -20px;
+ margin-bottom: 10px;
+}
+/*todo: same blue-white-hover-bold structure as the btn_port*/
+
+.btn_port{
+  background-color: #ffffff;
+  color: #428bca;
+}
+.btn_port:hover{
+  background-color: #428bca;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.row  {
+  margin-bottom: 5px;
+}
+
+
+[class*="col-"] {
+  padding-top: 5px;
+  padding-bottom: 5px;
+/*  
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+*/
+}
+
+.grid_head{
+  background-color: #428bca;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.grid_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.grid_btn:hover{
+  background-color: #428bca;
+  color: #ffffff;
+}
+
+
+
