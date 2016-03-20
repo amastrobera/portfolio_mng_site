@@ -9,13 +9,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
-
+    <!-- Bootstrap core Scripts -->
     <script src="js/jquery.12.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/popup.js"></script>
 
   </head>
 
@@ -63,7 +64,10 @@
 			<div class="input-group">
 			  <input type="text" class="form-control" placeholder="Add a security ... " action="security_list.py" autocomplete="on">
 			  <span class="input-group-btn">
-				<button class="btn btn-default grid_btn" type="button">Add</button></span>
+				<button class="btn btn-default grid_btn"
+					 type="button"
+					 onclick="show_popup('popup_add.html','Add Secu');"
+					 >Add</button></span>
 			</div>
 		</div>
 	  </div> 
@@ -92,8 +96,8 @@
 			<td class="col-md-6">
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" class="btn btn-default grid_btn">Chart</button>
-				  <button type="button" class="btn btn-default grid_btn">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
 				</div>
 			</td>
 		</tr>
@@ -103,9 +107,9 @@
 			<td class="col-md-2">93.34</td>
 			<td class="col-md-6">
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-default  grid_btn">Chart</button>
-				  <button type="button" class="btn btn-default grid_btn">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
 				</div>
 		</tr>
 		<tr class="grid_elem">
@@ -115,8 +119,8 @@
 			<td class="col-md-6">
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" class="btn btn-default grid_btn">Chart</button>
-				  <button type="button" class="btn btn-default grid_btn">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
 				</div>
 		</tr>
 		<tr class="grid_elem">
@@ -126,8 +130,8 @@
 			<td class="col-md-6">
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" class="btn btn-default grid_btn">Chart</button>
-				  <button type="button" class="btn btn-default grid_btn">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
 				</div>
 		</tr>
     </table> 

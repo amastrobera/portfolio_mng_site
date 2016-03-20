@@ -1,0 +1,33 @@
+.container {
+  margin-top: 20px;
+}
+
+.popup_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_btn:hover{
+  background-color: #428bca;
+  color: #ffffff;
+}
+
+.popup_del_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_del_btn:hover{
+  background-color: #a94442;
+  color: #ffffff;
+}
+
+.popup_edit_btn{
+  background-color: #ffffff;
+  color: #428bca;
+  font-weight: bold;
+}
+.popup_edit_btn:hover{
+  background-color: #c09853;
+  color: #ffffff;
+}
