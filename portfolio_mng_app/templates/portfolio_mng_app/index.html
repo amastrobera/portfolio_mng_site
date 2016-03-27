@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>My Portfolio</title>
+
+    {% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/grid.css" %}" rel="stylesheet">
+    <link href="{% static "css/navbar.css" %}" rel="stylesheet">
+    <!-- Bootstrap core Scripts -->
+    <script src="{% static "js/jquery.12.2.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <!-- Custom Scripts -->
+    <script src="{% static "js/popup.js" %}"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+		<ul class="nav nav-pills">
+			<li role="presentation" class="active"><a href="#">Home</a></li>
+			<li role="presentation"><a href="#">Portfolios</a></li>
+			<li role="presentation"><a href="#">Markets</a></li>
+			<li role="presentation"><a href="#">News</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Techical Study <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Compare Portfolios</a></li>
+				<li><a href="#">Compare Securities</a></li>
+				<li><a href="#">Backtest a Strategy</a></li>
+			  </ul>
+			</li>
+		</ul>
+	</div>
+
+    <div class="container">
+       <!--todo: 
+          1. div editable: 'select portfolio' with django list
+              and event that loads portfolio, and changes Name, 
+			  Update person/time
+          2. div editable: 'add security' with django autocomplete
+      	--> 
+	  <div class="row">
+		<div class="col-md-1">Portfolio</div>
+		<div class="col-md-2">
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="menu_portolios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select ...
+				<span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
+				<li><a href="#">EUR Equity long</a></li>
+				<li><a href="#">European contruction</a></li>
+				<li><a href="#">FX long/short</a></li>
+			  </ul>
+			</div>
+		</div> 
+		<div class="col-md-4">
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Add a security ... " action="security_list.py" autocomplete="on">
+			  <span class="input-group-btn">
+				<button class="btn btn-default grid_btn"
+					 type="button"
+					 onclick="show_popup('popup_add.html','Add Secu');"
+					 >Add</button></span>
+			</div>
+		</div>
+	  </div> 
+	  <div class="row">
+		<div class="col-md-7">Last updated yesterday @ 18:35 </div>
+	  </div> 
+	</div>
+
+    <div class="container">		
+		<!--todo: 
+		  1. django: filling all rows from the server. Or datalayer
+		  2. css: standardise this grid as a class, to reuse everywhere
+		--> 
+		<table class="table-striped table-hover">
+		<tr>
+			<td class="col-md-2 grid_head">Security Id</td>
+			<td class="col-md-2 grid_head">Position</td>
+			<td class="col-md-2 grid_head">Price</td>
+			<td class="col-md-6 grid_head">Actions</td>
+		</tr>
+
+		<tr class="grid_elem">
+			<td class="col-md-2">AAPL</td>
+			<td class="col-md-2">60</td>
+			<td class="col-md-2">107.61</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+			</td>
+		</tr>
+		<tr class="grid_elem">
+			<td class="col-md-2">GOOG</td>
+			<td class="col-md-2">80</td>
+			<td class="col-md-2">93.34</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+		</tr>
+		<tr class="grid_elem">
+			<td class="col-md-2">IBM</td>
+			<td class="col-md-2">20</td>
+			<td class="col-md-2">51.23</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+		</tr>
+		<tr class="grid_elem">
+			<td class="col-md-2">CSCO</td>
+			<td class="col-md-2">25</td>
+			<td class="col-md-2">12.94</td>
+			<td class="col-md-6">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn popup_edit_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn popup_del_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+		</tr>
+    </table> 
+
+<!-- beautiful but : (1) how to make them clickable visually? (2) bigger?
+			<td class="col-md-3">
+				<span class="glyphicon glyphicon-triangle-right"/>
+				<span class="glyphicon glyphicon-pencil"/>
+				<span class="glyphicon glyphicon-remove-circle"/>
+			</td>
+-->
+
+
+  </body>
+
+</html>

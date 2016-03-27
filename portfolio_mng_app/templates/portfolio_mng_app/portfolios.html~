@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Portfolios</title>
+
+    {% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static css/grid.css %}" rel="stylesheet">
+    <link href="{% static css/navbar.css %}" rel="stylesheet">
+    <!-- Bootstrap core Scripts -->
+    <script src="{% static js/jquery.12.2.min.js %}"></script>
+    <script src="{% static js/bootstrap.min.js %}"></script>
+    <!-- Custom Scripts -->
+    <script src="{% static js/popup.js %}"></script>
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+		<ul class="nav nav-pills">
+			<li role="presentation" class="active"><a href="#">Home</a></li>
+			<li role="presentation"><a href="#">Portfolios</a></li>
+			<li role="presentation"><a href="#">Markets</a></li>
+			<li role="presentation"><a href="#">News</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Techical Study <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Compare Portfolios</a></li>
+				<li><a href="#">Compare Securities</a></li>
+				<li><a href="#">Backtest a Strategy</a></li>
+			  </ul>
+			</li>
+		</ul>
+	</div>
+
+    <div class="container">		
+	  <table class="table-striped table-hover">
+		<tr>
+			<td class="col-md-1 grid_head">Id</td>
+			<td class="col-md-2 grid_head">Name</td>
+			<td class="col-md-2 grid_head">Created</td>
+			<td class="col-md-2 grid_head">Upated</td>
+			<td class="col-md-2 grid_head">Owner</td>
+			<td class="col-md-3 grid_head">Action</td>
+		</tr>
+        {% for port in portfolios %}
+		<tr class="grid_elem">
+			<td class="col-md-1">{{port.id}}</td>
+			<td class="col-md-2">{{port.name}}</td>
+            <td class="col-md-2">{{port.creationDateMini}}</td>
+            <td class="col-md-2">{{port.lastUpdateDateMini}}</td>
+            <td class="col-md-2">{{port.owner.name}}</td>
+			<td class="col-md-3">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">View</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+			</td>
+		</tr>
+		{% endfor %}
+      
+      </table> 
+      
+    </div>
+    
+  </body>
+
+</html>
