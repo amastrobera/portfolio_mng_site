@@ -26,8 +26,8 @@
 
     <div class="container">
 		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="#">Home</a></li>
-			<li role="presentation"><a href="#">Portfolios</a></li>
+			<li role="presentation" class="active"><a href="/portfolio_mng_app/">Home</a></li>
+			<li role="presentation"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
 			<li role="presentation"><a href="#">Markets</a></li>
 			<li role="presentation"><a href="#">News</a></li>
 			<li class="dropdown">
@@ -40,6 +40,29 @@
 			</li>
 		</ul>
 	</div>
+
+
+    <div class="container">
+       <!--todo: 
+          1. div editable: 'select portfolio' with django list
+              and event that loads portfolio, and changes Name, 
+			  Update person/time
+          2. div editable: 'add security' with django autocomplete
+      	--> 
+	  <div class="row">
+		<div class="col-md-4">
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Create a new portfolio ... ">
+			  <span class="input-group-btn">
+				<button class="btn btn-default grid_btn"
+					 type="button"
+					 onclick="show_popup('popup_add_port.html','Add Port');"
+					 >Add</button></span>
+			</div>
+		</div>
+	  </div> 
+	</div>
+
 
     <div class="container">		
 	  <table class="table-striped table-hover">
@@ -60,7 +83,8 @@
             <td class="col-md-2">{{port.owner.name}}</td>
 			<td class="col-md-3">
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-default grid_btn">View</button>
+				  <button type="button" class="btn btn-default grid_btn"
+				   href="{% url 'assets_in_port' port.id %}">View</button>
 				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
 				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
 				</div>

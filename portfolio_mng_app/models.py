@@ -36,10 +36,18 @@ class Portfolio(models.Model):
         return super(Portfolio, self).save(*args, **kwargs)
 
 
+class Asset(models.Model):
+    yid = models.CharField(max_length=10)
+    position = models.IntegerField(default=0)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+        
+    def __str__(self):
+        return '{}: {}'.format(self.yid, self.position)
+
+
 class Security(models.Model):
     yid = models.CharField(max_length=10)
     name = models.CharField(max_length=255)
-    portfolio = models.ManyToManyField(Portfolio, null=True, blank=True)
     
     def __str__(self):
         return '{}: {}'.format(self.yid, self.name)

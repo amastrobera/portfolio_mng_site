@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
-    <title>My Portfolio</title>
+    <title>Portfolios</title>
 
     {% load staticfiles %}
     <!-- Bootstrap core CSS -->
@@ -17,6 +17,8 @@
     <script src="{% static "js/jquery.12.2.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <!-- Custom Scripts -->
+    <script src="{% static "js/popup.js" %}"></script>
+
 
   </head>
 
@@ -38,6 +40,7 @@
 			</li>
 		</ul>
 	</div>
+
 
     <div class="container">
        <!--todo: 
@@ -80,8 +83,33 @@
 	</div>
 
 
-
-
+    <div class="container">		
+	  <table class="table-striped table-hover">
+		<tr>
+			<td class="col-md-1 grid_head">Id</td>
+			<td class="col-md-2 grid_head">Yid</td>
+			<td class="col-md-2 grid_head">Position</td>
+			<td class="col-md-3 grid_head">Action</td>
+		</tr>
+        {% for asset in assets %}
+		<tr class="grid_elem">
+			<td class="col-md-1">{{asset.id}}</td>
+			<td class="col-md-2">{{asset.yid}}</td>
+            <td class="col-md-2">{{asset.position}}</td>
+			<td class="col-md-3">
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" class="btn btn-default grid_btn">Chart</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				</div>
+			</td>
+		</tr>
+		{% endfor %}
+      
+      </table> 
+      
+    </div>
+    
   </body>
 
 </html>

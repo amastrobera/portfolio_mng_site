@@ -18,7 +18,10 @@
     font-weight: bold;
 }
 
-/*todo: text align on the left*/
+.dropdown{
+    padding-left: 0%;    
+}
+
 .dropdown-toggle{
     padding-left: 70%;
     color: #428bca;
