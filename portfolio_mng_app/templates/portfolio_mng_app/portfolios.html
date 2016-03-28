@@ -41,7 +41,6 @@
 		</ul>
 	</div>
 
-
     <div class="container">
        <!--todo: 
           1. div editable: 'select portfolio' with django list
@@ -56,7 +55,7 @@
 			  <span class="input-group-btn">
 				<button class="btn btn-default grid_btn"
 					 type="button"
-					 onclick="show_popup('popup_add_port.html','Add Port');"
+					 onclick="show_popup('popup_add_port','Add Port');"
 					 >Add</button></span>
 			</div>
 		</div>
@@ -85,8 +84,8 @@
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" class="btn btn-default grid_btn"
 				   href="{% url 'assets_in_port' port.id %}">View</button>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit.html','Delete Secu');">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete.html','Delete Secu');">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit','Delete Secu');">Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete','Delete Secu');">Delete</button>
 				</div>
 			</td>
 		</tr>

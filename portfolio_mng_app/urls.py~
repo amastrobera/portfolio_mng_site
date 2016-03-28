@@ -13,8 +13,8 @@ urlpatterns = [
     url(r'^assets/(?P<portfolioId>[0-9]+)/$', 
             views.assets_in_port,
             name='assets_in_port'),
-    url(r'^\d+/popup_add/$', views.popup_add, name='popup_add'),
-    url(r'^\d+/popup_add_port/$', views.popup_add, name='popup_add_port'),
-    url(r'^\d+/popup_edit.html$', views.popup_edit, name='popup_edit'),
-    url(r'^\d+/popup_delete/$', views.popup_delete, name='popup_delete'),
+    url(r'^popup_add/$', views.popup_add, name='popup_add'),
+    url(r'^popup_add_port/$', views.popup_add_port, name='popup_add_port'),
+    url(r'/popup_edit.html$', views.popup_edit, name='popup_edit'),
+    url(r'^popup_delete/$', views.popup_delete, name='popup_delete'),
 ]

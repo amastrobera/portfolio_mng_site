@@ -10,7 +10,7 @@ function show_popup(mylink, windowname) {
 		href=mylink.href; 
 	}
 	window.open(href, windowname,
-	        'top=200,left=500,width=600,height=400,scrollbars=yes'); 
+	        'top=300,left=500,width=600,height=400,scrollbars=yes'); 
 	return false; 
 } 
 

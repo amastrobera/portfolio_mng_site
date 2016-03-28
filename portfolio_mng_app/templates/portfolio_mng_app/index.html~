@@ -1,3 +1,5 @@
+{% extends 'portfolio_mng_app/nav_menu.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,62 +24,6 @@
 
   <body>
 
-    <div class="container">
-		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="/portfolio_mng_app/">Home</a></li>
-			<li role="presentation"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
-			<li role="presentation"><a href="#">Markets</a></li>
-			<li role="presentation"><a href="#">News</a></li>
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Techical Study <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="#">Compare Portfolios</a></li>
-				<li><a href="#">Compare Securities</a></li>
-				<li><a href="#">Backtest a Strategy</a></li>
-			  </ul>
-			</li>
-		</ul>
-	</div>
-
-    <div class="container">
-       <!--todo: 
-          1. div editable: 'select portfolio' with django list
-              and event that loads portfolio, and changes Name, 
-			  Update person/time
-          2. div editable: 'add security' with django autocomplete
-      	--> 
-	  <div class="row">
-		<div class="col-md-1">Portfolio</div>
-		<div class="col-md-2">
-			<div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="menu_portolios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select ...
-				<span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
-			    {% for port in portfolios %}
-				<li>
-				    <a href="{% url 'portfolio_mng_app:assets' port.id %}">
-				        {{port.name}}</a>
-                </li>
-			    {% endfor %}
-			  </ul>
-			</div>
-		</div> 
-		<div class="col-md-4">
-			<div class="input-group">
-			  <input type="text" class="form-control" placeholder="Add a security ... ">
-			  <span class="input-group-btn">
-				<button class="btn btn-default grid_btn"
-					 type="button"
-					 onclick="show_popup('popup_add.html','Add Secu');"
-					 >Add</button></span>
-			</div>
-		</div>
-	  </div> 
-	  <div class="row">
-		<div class="col-md-7">Last updated yesterday @ 18:35 </div>
-	  </div> 
-	</div>
 
 
 

@@ -41,7 +41,6 @@
 		</ul>
 	</div>
 
-
     <div class="container">
        <!--todo: 
           1. div editable: 'select portfolio' with django list
