@@ -26,9 +26,9 @@
 
     <div class="container">
 		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="/portfolio_mng_app/">Home</a></li>
-			<li role="presentation"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
-			<li role="presentation"><a href="#">Markets</a></li>
+			<li role="presentation" ><a href="/portfolio_mng_app/">Home</a></li>
+			<li role="presentation" class="active"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
+			<li role="presentation"><a href="{% url 'assets_in_port' 1 %}">Assets</a></li>
 			<li role="presentation"><a href="#">News</a></li>
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Techical Study <span class="caret"></span></a>
@@ -82,8 +82,8 @@
             <td class="col-md-2">{{port.owner.name}}</td>
 			<td class="col-md-3">
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-default grid_btn"
-				   href="{% url 'assets_in_port' port.id %}">View</button>
+				  <a type="button" class="btn btn-default grid_btn"
+				   href="{% url 'assets_in_port' port.id %}">View</a>
 				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit','Delete Secu');">Edit</button>
 				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete','Delete Secu');">Delete</button>
 				</div>
