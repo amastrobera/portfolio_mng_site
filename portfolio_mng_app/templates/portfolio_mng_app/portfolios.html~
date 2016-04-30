@@ -26,8 +26,8 @@
 
     <div class="container">
 		<ul class="nav nav-pills">
-			<li role="presentation" class="active"><a href="/portfolio_mng_app/">Home</a></li>
-			<li role="presentation"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
+			<li role="presentation" ><a href="/portfolio_mng_app/">Home</a></li>
+			<li role="presentation" class="active"><a href="/portfolio_mng_app/portfolios/">Portfolios</a></li>
 			<li role="presentation"><a href="{% url 'assets_in_port' 1 %}">Assets</a></li>
 			<li role="presentation"><a href="#">News</a></li>
 			<li class="dropdown">
@@ -49,13 +49,16 @@
           2. div editable: 'add security' with django autocomplete
       	--> 
 	  <div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="input-group">
-			  <input type="text" class="form-control" placeholder="Create a new portfolio ... ">
+			  <input type="text" class="form-control" id="in_port"
+			        placeholder="Create a new portfolio ... ">
 			  <span class="input-group-btn">
 				<button class="btn btn-default grid_btn"
 					 type="button"
-					 onclick="show_popup('popup_add_port','Add Port');"
+					 onclick="show_popup('popup_add_port','Add Port', 
+					          JSON.stringify({'name':
+					            document.getElementById('in_port').value}));"
 					 >Add</button></span>
 			</div>
 		</div>
@@ -71,7 +74,7 @@
 			<td class="col-md-2 grid_head">Created</td>
 			<td class="col-md-2 grid_head">Upated</td>
 			<td class="col-md-2 grid_head">Owner</td>
-			<td class="col-md-3 grid_head">Action</td>
+			<td class="col-md-2 grid_head">Action</td>
 		</tr>
         {% for port in portfolios %}
 		<tr class="grid_elem">
@@ -80,12 +83,10 @@
             <td class="col-md-2">{{port.creationDateMini}}</td>
             <td class="col-md-2">{{port.lastUpdateDateMini}}</td>
             <td class="col-md-2">{{port.owner.name}}</td>
-			<td class="col-md-3">
+			<td class="col-md-2">
 				<div class="btn-group" role="group" aria-label="...">
 				  <a type="button" class="btn btn-default grid_btn"
 				   href="{% url 'assets_in_port' port.id %}">View</a>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit','Delete Secu');">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete','Delete Secu');">Delete</button>
 				</div>
 			</td>
 		</tr>

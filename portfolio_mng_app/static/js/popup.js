@@ -1,4 +1,4 @@
-function show_popup(mylink, windowname) { 
+function show_popup(mylink, windowname, data) { 
 	if (! window.focus){
 		return true; 
 	}
@@ -11,6 +11,11 @@ function show_popup(mylink, windowname) {
 	}
 	window.open(href, windowname,
 	        'top=200,left=500,width=600,height=400,scrollbars=yes'); 
+	if (data){
+	    alert(data);
+	    var dObj = JSON.load(data);
+	    window.data = dObj;
+	}
 	return false; 
 } 
 

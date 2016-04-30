@@ -58,7 +58,7 @@
 			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
 			    {% for port in portfolios %}
 				<li>
-				    <a href="portfolio_mng_app/portfolios/{{ port.id }}"">
+				    <a href="{% url 'assets_in_port' port.id %}"">
 				        {{port.name}}</a>
                 </li>
 			    {% endfor %}
@@ -67,11 +67,13 @@
 		</div> 
 		<div class="col-md-4">
 			<div class="input-group">
-			  <input type="text" class="form-control" 
+			  <input type="text" class="form-control" id="in_secu" 
 			    placeholder="Add a security ... ">
 			  <span class="input-group-btn">
 				<button class="btn btn-default grid_btn" type="button"
-			        onclick="show_popup('popup_add','Add Secu');"
+			        onclick="{% url 'popup_add' 
+			                 document.getElementById('in_secu').value 
+			                  3 %}"
 			        >Add</button></span>
 			</div>
 		</div>
@@ -97,9 +99,14 @@
             <td class="col-md-2">{{asset.position}}</td>
 			<td class="col-md-3">
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-default grid_btn">Chart</button>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_edit','Delete Secu');">Edit</button>
-				  <button type="button" class="btn btn-default grid_btn" onclick="show_popup('popup_delete','Delete Secu');">Delete</button>
+				  <button type="button" class="btn btn-default grid_btn"
+				        >Chart</button>
+				  <button type="button" class="btn btn-default grid_btn"        
+				  href="{% url 'popup_edit' asset.yid 3 %}"
+				        >Edit</button>
+				  <button type="button" class="btn btn-default grid_btn" 
+				  onclick="{% url 'popup_delete' asset.yid 3 %}"
+				        >Delete</button>
 				</div>
 			</td>
 		</tr>

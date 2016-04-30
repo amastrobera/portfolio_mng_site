@@ -8,21 +8,34 @@ def index(request):
     template = 'portfolio_mng_app/index.html'
     return render(request, template)
 
-def popup_add_port(request):    
+def popup_add_port(request, userId):
     template = 'portfolio_mng_app/popup_add_port.html'
-    return render(request, template)
+    return render(request, template, {'userId': userId})
 
-def popup_add(request):    
+def popup_delete_port(request, portfolioId, userId):
+    context = {'userId': userId, 'portfolioId': portId}
+    template = 'portfolio_mng_app/popup_delete_port.html'
+    return render(request, template, context)
+
+def popup_add(request, yid, portfolioId):
+    portfolioName = Portfolio.objects.filter(id=portfolioId).first().name
+    context = {'yid': yid, 
+               'portfolioId': portfolioId, 
+               'portfolioName': portfolioName}
+    print "content: " + str(content)
     template = 'portfolio_mng_app/popup_add.html'
-    return render(request, template)
+    return render(request, template, context)
 
-def popup_edit(request):    
+def popup_edit(request, yid, portfolioId):
+    context = {'yid': yid, 'portfolioId': portfolioId}
     template = 'portfolio_mng_app/popup_edit.html'
-    return render(request, template)
+    print "content: " + str(content)
+    return render(request, template, context)
 
-def popup_delete(request):    
+def popup_delete(request, yid, portId):
+    context = {'yid': yid, 'portfolioId': portfolioId}
     template = 'portfolio_mng_app/popup_delete.html'
-    return render(request, template)
+    return render(request, template, context)
 
 def portfolios(request):
     #returns all portfolios in database
