@@ -56,9 +56,8 @@
 			  <span class="input-group-btn">
 				<button class="btn btn-default grid_btn"
 					 type="button"
-					 onclick="show_popup('popup_add_port','Add Port', 
-					          JSON.stringify({'name':
-					            document.getElementById('in_port').value}));"
+					 href="{% url 'popup_add_port' 4 
+					    document.getElementById('in_port').value %}"
 					 >Add</button></span>
 			</div>
 		</div>

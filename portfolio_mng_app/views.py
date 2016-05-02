@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import User, Portfolio, Security, Asset
@@ -8,9 +8,10 @@ def index(request):
     template = 'portfolio_mng_app/index.html'
     return render(request, template)
 
-def popup_add_port(request, userId):
+def popup_add_port(request, userId, portfolioName):
+    context = {'userId': userId, 'portfolioName': portfolioName}
     template = 'portfolio_mng_app/popup_add_port.html'
-    return render(request, template, {'userId': userId})
+    return render(request, template, context)
 
 def popup_delete_port(request, portfolioId, userId):
     context = {'userId': userId, 'portfolioId': portId}
@@ -30,10 +31,12 @@ def popup_add(request, yid, portfolioId):
 
 
 
-def popup_edit(request, yid, portfolioId):
+def popup_edit(request, portfolioId, yid):
     context = {'yid': yid, 'portfolioId': portfolioId}
     template = 'portfolio_mng_app/popup_edit.html'
     print "content: " + str(content)
+    #return HttpResponseRedirect(reverse())
+    #checkout https://www.google.co.uk/search?client=ubuntu&channel=fs&q=django+href+to+url+kwargs&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=5JckV4GkNdeFaNrvlIAD#channel=fs&q=django+view+url+template+kwargs
     return render(request, template, context)
 
 
