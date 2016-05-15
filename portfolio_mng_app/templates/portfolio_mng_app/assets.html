@@ -58,7 +58,7 @@
 			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
 			    {% for port in portfolios %}
 				<li>
-				    <a href="{% url 'assets_in_port' port.id %}"">
+				    <a href="{% url 'assets_in_port' port.id %}">
 				        {{port.name}}</a>
                 </li>
 			    {% endfor %}
