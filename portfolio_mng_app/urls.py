@@ -26,16 +26,8 @@ urlpatterns = [
             views.popup_delete_port, 
             name='popup_delete_port'),
 
-
-    url(r'^popup_add/(?P<yid>[A-Z]+)/(?P<portfolioId>[0-9]+)/$', 
-            views.popup_add, 
-            name='popup_add'),
-
     url(r'^popup_edit/(?P<portfolioId>[0-9]+)/(?P<yid>[A-Za-z .=^]+)/$', 
             views.popup_edit,
             name='popup_edit'),
             
-    url(r'^popup_delete/(?P<yid>[A-Z]+)/(?P<portfolioId>[0-9]+)/$', 
-            views.popup_delete, 
-            name='popup_delete'),
 ]

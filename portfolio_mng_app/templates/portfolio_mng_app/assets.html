@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
-    <title>Portfolios</title>
+    <title>{{portfolioName}}</title>
 
     {% load staticfiles %}
     <!-- Bootstrap core CSS -->
@@ -56,7 +56,7 @@
 				<span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" aria-labelledby="menu_portfolios">
-			    {% for port in portfolios %}
+			    {% for port in userPortfolios %}
 				<li>
 				    <a href="{% url 'assets_in_port' port.id %}">
 				        {{port.name}}</a>
@@ -71,9 +71,10 @@
 			    placeholder="Add a security ... ">
 			  <span class="input-group-btn">
 				<button class="btn btn-default grid_btn" type="button"
-			        onclick="{% url 'popup_add' 
-			                 document.getElementById('in_secu').value 
-			                  3 %}"
+			        onclick="{% url 'popup_edit' 
+			                 portfolioId 
+                             document.getElementById('in_secu').value 
+			                 %}"
 			        >Add</button></span>
 			</div>
 		</div>
@@ -101,9 +102,9 @@
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" class="btn btn-default grid_btn"
 				        >Chart</button>
-				  <button type="button" class="btn btn-default grid_btn"        
-				  href="{% url 'popup_edit' 3 asset.yid %}"
-				        >Edit</button>
+                  <a type="button" class="btn btn-default grid_btn"
+                   href="{% url 'popup_edit' portfolioId asset.yid %}"
+				        >Edit</a>
 
 				</div>
 			</td>

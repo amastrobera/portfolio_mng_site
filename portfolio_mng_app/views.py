@@ -18,34 +18,14 @@ def popup_delete_port(request, portfolioId, userId):
     template = 'portfolio_mng_app/popup_delete_port.html'
     return render(request, template, context)
 
-
-
-def popup_add(request, yid, portfolioId):
-    portfolioName = Portfolio.objects.filter(id=portfolioId).first().name
+def popup_edit(request, portfolioId, yid):
+    portfolioName = Portfolio.objects.get(pk = portfolioId).name
     context = {'yid': yid, 
                'portfolioId': portfolioId, 
                'portfolioName': portfolioName}
-    print "content: " + str(content)
-    template = 'portfolio_mng_app/popup_add.html'
-    return render(request, template, context)
-
-
-
-def popup_edit(request, portfolioId, yid):
-    context = {'yid': yid, 'portfolioId': portfolioId}
     template = 'portfolio_mng_app/popup_edit.html'
-    print "content: " + str(content)
-    #return HttpResponseRedirect(reverse())
-    #checkout https://www.google.co.uk/search?client=ubuntu&channel=fs&q=django+href+to+url+kwargs&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=5JckV4GkNdeFaNrvlIAD#channel=fs&q=django+view+url+template+kwargs
+    print context
     return render(request, template, context)
-
-
-
-def popup_delete(request, yid, portId):
-    context = {'yid': yid, 'portfolioId': portfolioId}
-    template = 'portfolio_mng_app/popup_delete.html'
-    return render(request, template, context)
-
 
 
 def portfolios(request):
@@ -77,7 +57,20 @@ def assets_in_port(request, portfolioId):
     try:
         all_assets = Asset.objects.all().filter(
                     portfolio__id=portfolioId).order_by('-yid')
+        portfolio = Portfolio.objects.get(pk = portfolioId)
+        userId = portfolio.owner.id
+        query = Portfolio.objects.get(owner = userId)
+        userPortfolios = []
+        if type(query) is list:
+            userPortfolios = [p for p in query]  
+        else:
+            userPortfolios.append(query)
+
         context['assets'] = all_assets
+        context['portfolioId'] = portfolioId
+        context['portfolioName'] = portfolio.name
+        context['userPortfolios'] = userPortfolios
+
     except Asset.DoesNotExist:
         raise Http404("no portfolio found")
     template = 'portfolio_mng_app/assets.html'
